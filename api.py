@@ -12,7 +12,7 @@ def read_invite_url():
     except FileNotFoundError:
         return None
     except Exception as e:
-        traceback.print_exc()  # Print the exception traceback for debugging
+        traceback.print_exc()
         return None
 
 @app.get("/invite/")

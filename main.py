@@ -18,12 +18,12 @@ intents.invites = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-invite_url = None  # Store the invite URL here
+invite_url = None  
 
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
-    generate_invite.start()  # Start the invite generation task when the bot is ready
+    generate_invite.start()  
 
 @tasks.loop(hours=24)
 async def generate_invite():
@@ -36,7 +36,7 @@ async def generate_invite():
     invite_url = invite.url
     print(f"Generated new invite link: {invite_url}")
     
-    # Write the invite URL to the shared file
+    
     with open('invite_url.txt', 'w') as file:
         file.write(invite_url)
 
